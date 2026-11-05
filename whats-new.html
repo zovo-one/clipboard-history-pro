@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's new in Clipboard History Pro</title>
+<link rel="icon" href="icons/icon-32.png">
+<link rel="stylesheet" href="whats-new.css">
+<script src="src/membership-state.js"></script>
+<script src="whats-new.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="preview-bar" id="previewBar" role="region" aria-label="Preview controls" hidden>
+  <span>Preview with sample numbers. In the extension every number comes from the user's own history.</span>
+  <span>
+    <a data-preview="free" href="?state=free">Free user</a> ·
+    <a data-preview="full" href="?state=full">Free, history full</a> ·
+    <a data-preview="pro" href="?state=pro">Pro member</a> ·
+    <a data-preview="fresh" href="?state=fresh">Empty history</a> ·
+    <a data-preview="lapsed" href="?state=lapsed">Pro switched off</a>
+  </span>
+</div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="https://zovo.one/?utm_source=clipboard-history-pro&amp;utm_medium=extension&amp;utm_campaign=whats-new-2-2-7&amp;utm_content=logo" target="_blank" rel="noopener">
+      <img src="icons/icon-48.png" alt="" width="36" height="36">
+      <span class="brand-name">Clipboard History Pro <span class="brand-by">by Zovo</span></span>
+    </a>
+    <span class="version-pill" data-version="v">v2.2.7</span>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <h1 id="heroTitle">
+        <span class="nowrap">Clipboard History Pro</span> is up to date.
+        <span class="line2" id="heroLine2Count" hidden>You have <em id="heroClips">0</em> <span id="heroClipsNoun">clips</span> saved, ready to paste again.</span>
+        <span class="line2" id="heroLine2Plain">Here's what changed in this release.</span>
+      </h1>
+
+      <details class="changes" id="changes">
+        <summary><span>What's new in <span data-version="release">2.2.7</span></span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="changes-body" id="changesBody">
+          <h2 class="sr-only">Changes in this release</h2>
+          <div class="change">
+            <span class="tag fixed">Fixed</span>
+            <div>
+              <h3>A web page can no longer fill or wipe your history</h3>
+              <p>Some sites could fire bursts of copy events that pushed junk into your list and, on the free plan, trimmed your real clips away. Now each click or copy shortcut saves at most one clip, and fake copy events are ignored.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag fixed">Fixed</span>
+            <div>
+              <h3>Copies keep saving right after an update</h3>
+              <p>Tabs that were already open used to stop saving what you copied after the extension updated, until you reloaded them. They keep working now, starting with this update.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag fixed">Fixed</span>
+            <div>
+              <h3>Starred clips are kept when the history fills up</h3>
+              <p>Trimming the oldest clips used to delete starred ones too. Starred and pinned clips now stay until you remove them.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag fixed">Fixed</span>
+            <div>
+              <h3>A settings panel that does what it says</h3>
+              <p>The notifications switch, the duplicates switch, the theme menu and Export All in Settings didn't do anything. Each control that stays now works, and the ones with nothing behind them are gone.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag">Improved</span>
+            <div>
+              <h3>Fewer nags</h3>
+              <p>The toolbar icon no longer flashes a PRO badge every time you copy at the free limit, and the 50% countdown banner that covered the bottom of the popup is gone.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag">Improved</span>
+            <div>
+              <h3>Two fewer permissions</h3>
+              <p>Clipboard History Pro no longer asks for notifications or for reading your clipboard in the background. It never used either.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag fixed">Fixed</span>
+            <div>
+              <h3>Incognito copies stay private</h3>
+              <p>With incognito allowed, text you copied in a private window used to land in your normal history. Copies made in incognito windows aren't saved now.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag">Improved</span>
+            <div>
+              <h3>Search is ready when the popup opens</h3>
+              <p>The cursor now starts in the search box, so you can press the shortcut and type straight away. The right-click item is also renamed to Open Clipboard History, which is what it always did.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag new">New</span>
+            <div>
+              <h3>Your own numbers, right on this page</h3>
+              <p>This page counts the clips you have saved and how often you've pasted from your history. It reads them from this browser, and none of them leave it.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag new">New</span>
+            <div>
+              <h3>You choose whether this page opens</h3>
+              <p>The popup's Settings has a new switch. Turn it off and future updates arrive without opening a tab.</p>
+            </div>
+          </div>
+          <p class="changes-group">For Pro members</p>
+          <div class="change">
+            <span class="tag fixed">Fixed</span>
+            <div>
+              <h3>Your license is checked again, safely</h3>
+              <p>Pro was never re-checked after activation. The check now runs, and only a clear answer from the license server that a key is invalid turns Pro off. An outage or a lost connection never does.</p>
+            </div>
+          </div>
+          <div class="change">
+            <span class="tag fixed">Fixed</span>
+            <div>
+              <h3>Ending Pro no longer empties your history</h3>
+              <p>Dropping back to the free plan could delete everything above 100 clips on the next copy. Now nothing is deleted at once, and each new copy replaces one old clip at a time.</p>
+            </div>
+          </div>
+          <p class="changes-foot">Your saved clips, stars and pins carry over exactly as you left them.</p>
+        </div>
+      </details>
+
+      <div class="stats" id="stats" hidden>
+        <h2 class="sr-only">Your numbers</h2>
+        <div class="stat" id="cardClips" hidden>
+          <span class="stat-num" id="statClips">0</span>
+          <span class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg><span id="statClipsLabel">Clips saved right now</span></span>
+          <span class="stat-note" id="statClipsNote"></span>
+        </div>
+        <div class="stat" id="cardReuse" hidden>
+          <span class="stat-num" id="statReuse">0</span>
+          <span class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg><span id="statReuseLabel">Copied back from history</span></span>
+          <span class="stat-note" id="statReuseNote">at least, counting clips still saved</span>
+        </div>
+        <div class="stat" id="cardKeep" hidden>
+          <span class="stat-num" id="statKeep">0</span>
+          <span class="stat-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg><span id="statKeepLabel">Pinned or starred</span></span>
+          <span class="stat-note" id="statKeepNote"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pro members -->
+    <section class="section" aria-labelledby="thanksTitle" data-for="protected" hidden>
+      <div class="thanks">
+        <span class="eyebrow">Your Pro is active</span>
+        <h2 id="thanksTitle">Thank you for backing Clipboard History Pro</h2>
+        <p class="sub thanks-sub">There's nothing to buy here. Your history holds up to 10,000 clips, stars and pins have no cap, and export is on. The same membership covers Pro in 14 other Zovo extensions.</p>
+        <div class="row">
+          <a class="cta secondary" href="mailto:support@zovo.one?subject=Clipboard%20History%20Pro">Email support</a>
+        </div>
+        <p class="thanks-foot">Liked it? A <a data-cta="pro-review" href="https://chromewebstore.google.com/detail/ddmidpneacclepjmdjibmcdijedgdidf/reviews" target="_blank" rel="noopener">store review</a> takes a minute and helps other people find it.</p>
+      </div>
+    </section>
+
+    <!-- Members whose Pro is switched off -->
+    <section class="section" aria-labelledby="lapsedTitle" data-for="lapsed" hidden>
+      <div class="thanks">
+        <span class="eyebrow">Your license needs a check</span>
+        <h2 id="lapsedTitle">Pro is switched off on this browser</h2>
+        <p class="sub thanks-sub">This browser has a Zovo license key saved, but Pro isn't on. Usually it's a lapsed payment or an old key. Open the popup, click the key button at the bottom right and paste your current key, or renew if your plan has ended.</p>
+        <div class="row">
+          <a class="cta" data-cta="lapsed-renew" href="https://zovo.one/join" target="_blank" rel="noopener">Renew on zovo.one</a>
+        </div>
+        <p class="thanks-foot">Not sure what happened? <a href="mailto:support@zovo.one?subject=Clipboard%20History%20Pro%20license">Email support</a> and I'll check your license.</p>
+      </div>
+    </section>
+
+    <!-- Pivot + plans: free users only -->
+    <section class="section pivot center tight" aria-labelledby="pivotTitle" data-for="free" hidden>
+      <h2 id="pivotTitle">Free keeps your last 100 clips. <span class="accent">Pro keeps 10,000.</span></h2>
+      <p class="sub" id="pivotSub">Star and pin as many clips as you like, and export your history whenever you want.</p>
+
+      <div class="plans" id="plans">
+        <div class="plan-grid">
+          <div class="plan">
+            <h3 class="plan-name">Monthly</h3>
+            <div class="price"><span class="amt">$4.99</span><span class="per">/month</span></div>
+            <span class="plan-sub">Renews monthly. Cancel any time from your dashboard, with no fee.</span>
+            <a class="cta secondary" data-cta="plan-monthly" href="https://zovo.one/join?tier=pro" target="_blank" rel="noopener">Get Pro monthly</a>
+          </div>
+          <div class="plan best">
+            <span class="badge">Pays for itself in 20 months</span>
+            <h3 class="plan-name">Lifetime</h3>
+            <div class="price"><span class="amt">$99</span><span class="per">once</span></div>
+            <span class="plan-sub">One payment and no renewals, so Pro is yours to keep.</span>
+            <a class="cta" data-cta="plan-lifetime" href="https://zovo.one/join?tier=lifetime" target="_blank" rel="noopener">Get Pro for life</a>
+          </div>
+        </div>
+        <p class="both">Both plans include Pro in 14 other Zovo extensions too.</p>
+        <p class="paid-note paid-note-below" id="paidNote" hidden>Bought Pro after clicking through earlier? Your key is in your purchase email. Open the popup, click the key button at the bottom right and paste it, and Pro turns on right away.</p>
+        <div class="assure">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure checkout by Stripe</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>Your key arrives as soon as payment clears</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Monthly cancels any time</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/></svg><a data-cta="refund-terms" href="https://zovo.one/refund" target="_blank" rel="noopener">Refund terms</a></span>
+        </div>
+        <p class="have-key">Already paid? Open the popup and click the key button at the bottom right.</p>
+        <p class="seller">Sold by Zovo through zovo.one, not by Google.</p>
+      </div>
+    </section>
+
+    <!-- Compare: free users only -->
+    <section class="section" aria-labelledby="compareTitle" data-for="free" hidden>
+      <div class="center">
+        <span class="eyebrow">Free and Pro</span>
+        <h2 id="compareTitle">Here's exactly what you get</h2>
+        <p class="sub">Pro changes the numbers below. The rest is identical.</p>
+      </div>
+      <p class="compare-lead">Saving what you copy, search, the type filters, the keyboard shortcut and copying any clip back are free, with no cap.</p>
+      <div class="compare">
+        <table>
+          <caption class="sr-only">Limits in the free version and in Pro</caption>
+          <thead>
+            <tr><th scope="col">Limit</th><th scope="col">Free</th><th scope="col" class="pro-col">Pro</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">History<small>Recent clips kept. Starred and pinned clips don't count and are never trimmed.</small></th>
+              <td data-label="Free">100</td>
+              <td class="pro" data-label="Pro">10,000</td>
+            </tr>
+            <tr>
+              <th scope="row">Starred clips</th>
+              <td data-label="Free">10</td>
+              <td class="pro" data-label="Pro">No limit</td>
+            </tr>
+            <tr>
+              <th scope="row">Pinned clips</th>
+              <td data-label="Free">5</td>
+              <td class="pro" data-label="Pro">No limit</td>
+            </tr>
+            <tr>
+              <th scope="row">Export<small>Your whole history as CSV, JSON or plain text.</small></th>
+              <td data-label="Free">Not included</td>
+              <td class="pro" data-label="Pro">Included</td>
+            </tr>
+            <tr>
+              <th scope="row">Other Zovo extensions<small>The same membership turns on Pro across the included extensions.</small></th>
+              <td data-label="Free">Not included</td>
+              <td class="pro" data-label="Pro">14 extensions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="compare-foot" id="downgradeNote">Stop paying and your saved clips stay put.</p>
+      <p class="center again"><a class="cta secondary" href="#plans">Choose a plan</a></p>
+    </section>
+
+    <!-- Tips: value for everyone -->
+    <section class="section" aria-labelledby="tipsTitle">
+      <div class="center">
+        <span class="eyebrow">Free for everyone</span>
+        <h2 id="tipsTitle">Four things worth setting up</h2>
+        <p class="sub">Each takes under a minute and works without Pro.</p>
+      </div>
+      <div class="tips">
+        <article class="tip">
+          <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></svg></span>
+          <h3>Open your history from the keyboard</h3>
+          <p>Here's your current shortcut. Press it, type to filter, and click the clip you want to copy it back.</p>
+          <div class="keys">
+            <span><kbd data-cmd="_execute_action">Not set</kbd> open Clipboard History Pro</span>
+          </div>
+          <button class="tip-link" type="button" data-open="shortcuts">Change the shortcut</button>
+        </article>
+        <article class="tip">
+          <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg></span>
+          <h3>Pin what you paste every day</h3>
+          <p>Your email address, a support reply, a tracking link. Pinned and starred clips are never trimmed when the history fills up, and the Pinned filter shows just those.</p>
+        </article>
+        <article class="tip">
+          <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <h3>Find a clip in two keystrokes</h3>
+          <p>Search matches the text of every saved clip. The Text, URL and Code filters narrow it down when you remember the kind of thing you copied but not the words.</p>
+        </article>
+        <article class="tip">
+          <span class="tip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <h3>Keep passwords out of your history</h3>
+          <p>Text you copy on web pages lands in the list, and the list is one shortcut away. Delete sensitive clips once you've pasted them, and keep the popup closed while you share your screen.</p>
+        </article>
+      </div>
+      <div class="callout">
+        <span class="callout-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.7 3.86a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></span>
+        <div>
+          <h3>Removing the extension deletes your history</h3>
+          <p>Your clips live only in this browser, so uninstalling Clipboard History Pro or clearing its data erases them for good. Copy out anything you want to keep first. With Pro, Export All in the popup's Settings saves the whole list as a file.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder: everyone -->
+    <section class="section" aria-labelledby="founderTitle">
+      <div class="founder">
+        <img src="founder-192.webp" alt="Michael Lip" width="112" height="112">
+        <div>
+          <h2 id="founderTitle">Support goes straight to the developer</h2>
+          <p>I'm Michael. I build Clipboard History Pro on my own. If a copy doesn't show up, a key won't activate or something looks wrong, write to <a href="mailto:support@zovo.one?subject=Clipboard%20History%20Pro">support@zovo.one</a>. It lands in my inbox, not a ticket queue.</p>
+          <p class="sig"><span class="sig-name">Michael Lip</span>, developer of Clipboard History Pro</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section narrow" aria-labelledby="faqTitle">
+      <h2 id="faqTitle" class="center">Questions people ask</h2>
+      <div class="faq">
+        <details>
+          <summary>Where is my clipboard history stored?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div><p>In this browser, on your computer. Nothing you copy is uploaded. That also means clearing your browser data or reinstalling the extension clears your history.</p></div>
+        </details>
+        <details>
+          <summary>Why didn't a copy show up?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div><p>Clipboard History Pro saves text you copy or cut yourself on a web page, with the keyboard or the page's own right-click menu. A site's own copy button can write to the clipboard without a copy event, so those aren't caught. Copies in other apps, on browser pages like chrome://, and in incognito windows aren't saved either.</p></div>
+        </details>
+        <details>
+          <summary>Does Clipboard History Pro send anything to a server?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div><p id="faqNetwork">Your clips never leave your browser, and copies you make in incognito windows aren't saved at all. The one exception is Pro, which checks your license key with Zovo's server, sending only the key and the extension's name. If you uninstall, Chrome opens a short feedback page on zovo.one.</p></div>
+        </details>
+        <details data-for="free lapsed" hidden>
+          <summary>What happens if I stop paying for Pro?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div><p id="faqDowngrade">You go back to the free limits, and nothing you've saved is deleted at once. Once you're over 100 clips, each new copy replaces the oldest clip that isn't starred or pinned.</p></div>
+        </details>
+        <details data-for="free" hidden>
+          <summary>Can I get a refund?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div><p>Monthly plans can be cancelled at any time. Lifetime is a one-time payment delivered instantly, so it's final once the key and archive have been sent. If anything is faulty or not as described, it gets fixed or refunded.</p>
+            <p><a data-cta="faq-refund" href="https://zovo.one/refund" target="_blank" rel="noopener">Read the full refund terms</a></p></div>
+        </details>
+        <details>
+          <summary>I already paid. How do I turn Pro on?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div><p>Open the popup, click the key button at the bottom right, paste the key that starts with ZOVO- and press Activate License. You'll find it in your purchase email and on your <a data-cta="faq-dashboard" href="https://zovo.one/dashboard" target="_blank" rel="noopener">zovo.one dashboard</a>. Can't find it? Email support@zovo.one.</p></div>
+        </details>
+        <details>
+          <summary>Can I stop this page from opening after updates?<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div><p>Yes. Tick the box at the bottom of this page, or open the popup's Settings and switch off "Show what's new after an update". Updates will still install, just without this tab.</p></div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <label class="optout"><input type="checkbox" id="optout"> Don't open this page after future updates</label>
+    <nav aria-label="Footer">
+      <a href="https://chromewebstore.google.com/detail/ddmidpneacclepjmdjibmcdijedgdidf/reviews" target="_blank" rel="noopener">Write a review</a>
+      <a data-cta="footer-privacy" href="https://zovo.one/privacy" target="_blank" rel="noopener">Privacy</a>
+      <a data-cta="footer-terms" href="https://zovo.one/terms" target="_blank" rel="noopener">Terms</a>
+      <a href="mailto:support@zovo.one?subject=Clipboard%20History%20Pro">Support</a>
+    </nav>
+  </footer>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

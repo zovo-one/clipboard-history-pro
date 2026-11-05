@@ -1,0 +1,234 @@
+{
+  "extensionName": {
+    "message": "Clipboard History Pro - Clipboard Manager, Copy Paste, Snippet Search & Pin",
+    "description": "The name of the extension shown in Chrome"
+  },
+  "browserActionTitle": {
+    "message": "Clipboard History Pro",
+    "description": "Tooltip shown when hovering over extension icon"
+  },
+  "tabAll": {
+    "message": "すべて",
+    "description": "Tab label for all clips"
+  },
+  "tabPinned": {
+    "message": "ピン留め",
+    "description": "Tab label for pinned clips"
+  },
+  "tabStarred": {
+    "message": "お気に入り",
+    "description": "Tab label for starred clips"
+  },
+  "searchPlaceholder": {
+    "message": "クリップを検索...",
+    "description": "Placeholder text in search input"
+  },
+  "searchNoResults": {
+    "message": "クリップが見つかりません",
+    "description": "Message when search returns no results"
+  },
+  "emptyStateTitle": {
+    "message": "クリップがありません",
+    "description": "Title when clipboard history is empty"
+  },
+  "emptyStateDescription": {
+    "message": "テキストをコピーするとここに表示されます",
+    "description": "Description when clipboard history is empty"
+  },
+  "clipCopied": {
+    "message": "クリップボードにコピーしました",
+    "description": "Toast message when clip is copied"
+  },
+  "clipPinned": {
+    "message": "クリップをピン留めしました",
+    "description": "Toast message when clip is pinned"
+  },
+  "clipUnpinned": {
+    "message": "ピン留めを解除しました",
+    "description": "Toast message when clip is unpinned"
+  },
+  "clipStarred": {
+    "message": "お気に入りに追加しました",
+    "description": "Toast message when clip is starred"
+  },
+  "clipUnstarred": {
+    "message": "お気に入りから削除しました",
+    "description": "Toast message when clip is unstarred"
+  },
+  "clipDeleted": {
+    "message": "クリップを削除しました",
+    "description": "Toast message when clip is deleted"
+  },
+  "buttonCopy": {
+    "message": "コピー",
+    "description": "Copy button text"
+  },
+  "buttonPin": {
+    "message": "ピン留め",
+    "description": "Pin button text"
+  },
+  "buttonUnpin": {
+    "message": "ピン解除",
+    "description": "Unpin button text"
+  },
+  "buttonStar": {
+    "message": "お気に入り",
+    "description": "Star button text"
+  },
+  "buttonUnstar": {
+    "message": "お気に入り解除",
+    "description": "Unstar button text"
+  },
+  "buttonDelete": {
+    "message": "削除",
+    "description": "Delete button text"
+  },
+  "buttonClearAll": {
+    "message": "すべてクリア",
+    "description": "Clear all clips button"
+  },
+  "buttonSettings": {
+    "message": "設定",
+    "description": "Settings button text"
+  },
+  "settingsTitle": {
+    "message": "設定",
+    "description": "Settings page title"
+  },
+  "settingsMaxClips": {
+    "message": "最大クリップ数",
+    "description": "Max clips setting label"
+  },
+  "proFeature": {
+    "message": "Pro機能",
+    "description": "Label for Pro-only features"
+  },
+  "proBadge": {
+    "message": "PRO",
+    "description": "Pro badge text"
+  },
+  "upgradeTitle": {
+    "message": "Proにアップグレード",
+    "description": "Upgrade modal title"
+  },
+  "upgradeButton": {
+    "message": "今すぐアップグレード",
+    "description": "Upgrade button text"
+  },
+  "freeTierLimit": {
+    "message": "無料プランの上限（$COUNT$クリップ）に達しました",
+    "description": "Free tier limit message",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "freeTierRemaining": {
+    "message": "残り$COUNT$クリップ",
+    "description": "Remaining clips in free tier",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "25"
+      }
+    }
+  },
+  "clipCount": {
+    "message": "$COUNT$クリップ",
+    "description": "Number of clips",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "42"
+      }
+    }
+  },
+  "clipTypeText": {
+    "message": "テキスト",
+    "description": "Text clip type label"
+  },
+  "clipTypeUrl": {
+    "message": "URL",
+    "description": "URL clip type label"
+  },
+  "clipTypeCode": {
+    "message": "コード",
+    "description": "Code clip type label"
+  },
+  "clipTypeEmail": {
+    "message": "メール",
+    "description": "Email clip type label"
+  },
+  "timeJustNow": {
+    "message": "たった今",
+    "description": "Timestamp for very recent clips"
+  },
+  "timeMinutesAgo": {
+    "message": "$COUNT$分前",
+    "description": "Timestamp for minutes ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "timeHoursAgo": {
+    "message": "$COUNT$時間前",
+    "description": "Timestamp for hours ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "timeDaysAgo": {
+    "message": "$COUNT$日前",
+    "description": "Timestamp for days ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "confirmClearAll": {
+    "message": "すべてのクリップをクリアしてもよろしいですか？この操作は元に戻せません。",
+    "description": "Confirmation message for clearing all clips"
+  },
+  "confirmDelete": {
+    "message": "このクリップを削除してもよろしいですか？",
+    "description": "Confirmation message for deleting a clip"
+  },
+  "buttonConfirm": {
+    "message": "確認",
+    "description": "Confirm button text"
+  },
+  "buttonCancel": {
+    "message": "キャンセル",
+    "description": "Cancel button text"
+  },
+  "errorGeneric": {
+    "message": "エラーが発生しました。もう一度お試しください。",
+    "description": "Generic error message"
+  },
+  "errorStorageFull": {
+    "message": "ストレージがいっぱいです。一部のクリップを削除してください。",
+    "description": "Storage full error message"
+  },
+  "welcomeTitle": {
+    "message": "Clipboard History Proへようこそ！",
+    "description": "Welcome screen title"
+  },
+  "welcomeDescription": {
+    "message": "クリップボード履歴が自動的に保存されるようになりました。",
+    "description": "Welcome screen description"
+  },
+  "welcomeGetStarted": {
+    "message": "始める",
+    "description": "Get started button on welcome screen"
+  }
+}

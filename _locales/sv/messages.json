@@ -1,0 +1,10 @@
+{
+  "extensionName": {
+    "message": "Clipboard History Pro - Clipboard Manager, Copy Paste, Snippet Search & Pin",
+    "description": "The name of the extension"
+  },
+  "browserActionTitle": {
+    "message": "Clipboard History Pro",
+    "description": "Tooltip for the extension toolbar icon"
+  }
+}

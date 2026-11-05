@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to Clipboard History Pro</title>
+<link rel="stylesheet" href="onboarding.css">
+<style>
+  /* --- Step 2 interactive first-value demo (self-contained, no permissions) --- */
+  .src-row{display:flex;flex-direction:column;gap:8px;margin:4px 0 14px}
+  .src-chip{display:flex;align-items:center;gap:10px;width:100%;text-align:left;
+    background:rgba(124,108,240,.06);border:1px solid rgba(124,108,240,.22);
+    border-radius:11px;padding:12px 13px;min-height:44px;cursor:pointer;color:var(--text-2,#c9c6e0);
+    font:inherit;font-size:13px;transition:border-color .15s ease,background .15s ease,opacity .2s ease}
+  .src-chip:hover{border-color:rgba(124,108,240,.5);background:rgba(124,108,240,.12)}
+  .src-chip:focus-visible{outline:2px solid var(--accent-2,#9a8cff);outline-offset:2px}
+  .src-chip .sc-kind{flex:0 0 auto;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:9.5px;
+    letter-spacing:.06em;text-transform:uppercase;color:#7c6cf0;
+    border:1px solid rgba(124,108,240,.4);border-radius:5px;padding:2px 6px}
+  .src-chip .sc-nm{flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px;color:var(--text-2,#c9c6e0)}
+  .src-chip .sc-act{flex:0 0 auto;font-size:11.5px;font-weight:600;color:#7c6cf0}
+  .src-chip.copied{opacity:.5;cursor:default;border-color:rgba(124,108,240,.15)}
+  .src-chip.copied .sc-act{color:var(--text-4,#6d6a86)}
+  .hist{display:flex;flex-direction:column;gap:8px;min-height:52px}
+  .hist-empty{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--text-4,#6d6a86);
+    text-align:center;padding:14px 8px;border:1px dashed rgba(124,108,240,.18);border-radius:10px}
+  .hist .dtab{cursor:pointer;animation:clipIn .28s ease both}
+  .hist .dtab:hover{border-color:rgba(124,108,240,.5)}
+  .hist .dtab .copyback{margin-left:auto;font-size:10.5px;font-weight:600;color:#7c6cf0;flex:0 0 auto}
+  .hist .dtab.flash{border-color:#54d6a2}
+  .hist .dtab.flash .copyback{color:#54d6a2}
+  @keyframes clipIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+  /* --- Permission-prime panel --- */
+  .prime{display:flex;flex-direction:column;gap:12px;margin:4px 0 18px;text-align:left;
+    background:rgba(124,108,240,.05);border:1px solid rgba(124,108,240,.18);border-radius:14px;padding:16px 18px}
+  .prime-row{display:flex;gap:12px;align-items:flex-start}
+  .prime-row .ic{flex:0 0 30px;width:30px;height:30px;display:grid;place-items:center;
+    border-radius:8px;background:rgba(124,108,240,.12);color:#7c6cf0}
+  .prime-row .ttl{display:block;font-weight:600;font-size:13.5px;color:var(--text-1,#efeefb);margin-bottom:2px}
+  .prime-row .tx{font-size:12.5px;line-height:1.5;color:var(--text-3,#9a97b4)}
+</style>
+</head>
+<body>
+<div class="bg-fx"></div>
+<div class="bg-grid"></div>
+
+<!-- top nav -->
+<nav class="topnav">
+  <div class="brand">
+    <span class="z"><b>zovo</b>.</span>
+    <span class="sep"></span>
+    <span class="prod">Clipboard History Pro</span>
+  </div>
+  <a class="ghlink" href="https://github.com/theluckystrike" target="_blank" rel="noopener">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11 11 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+    GitHub <span class="arr">↗</span>
+  </a>
+</nav>
+<div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="stage" id="stage">
+
+  <!-- ============ STEP 1 · THE HOOK ============ -->
+  <section class="step active" data-step="1" data-next="Show me">
+    <div class="center">
+      <span class="kicker">by Zovo · your clipboard, remembered</span>
+      <h1>Everything you copy<br>vanishes the moment you<br>copy the <span class="em">next</span> thing.</h1>
+      <p class="lede">Your computer keeps exactly one copy at a time. The address, the code snippet, the wire details,
+        gone the second you hit copy again. Clipboard History Pro quietly saves the text you copy on web pages so you
+        can pull any of it back in seconds.</p>
+
+      <div class="demo">
+        <div class="demo-top">
+          <div class="demo-mem">1<small> item</small></div>
+          <div class="demo-cap">what your clipboard keeps</div>
+        </div>
+        <div class="demo-tabs">
+          <div class="dtab suspended"><span class="fav"></span><span class="nm">The shipping address you copied</span><span class="saved">overwritten</span></div>
+          <div class="dtab suspended"><span class="fav"></span><span class="nm">That fix from Stack Overflow</span><span class="saved">overwritten</span></div>
+          <div class="dtab"><span class="fav"></span><span class="nm">The last link you copied</span><span class="badge active">On clipboard</span></div>
+        </div>
+        <div class="sub" style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11.5px;color:var(--text-3);text-align:left;margin-top:2px">Only the last copy survives. The two above are already lost.</div>
+      </div>
+
+      <div class="chips-row">
+        <span class="chip-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Stored on this device</span>
+        <span class="chip-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>No analytics or tracking</span>
+        <span class="chip-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Manifest V3</span>
+        <span class="chip-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Instant recall · Ctrl + Shift + V</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STEP 2 · INSTANT WIN (real interactive demo) ============ -->
+  <section class="step" data-step="2" data-next="Set it up">
+    <div class="center">
+      <span class="kicker">Try it right here · takes 10 seconds</span>
+      <h2>Now it's all <span class="em">still there</span>.</h2>
+      <p class="lede">Here is the whole loop, live on this page. Copy a few sample snippets and watch them stack into a
+        history. Then click any saved clip to drop it straight back onto your real clipboard, ready to paste.</p>
+
+      <div class="demo">
+        <div class="demo-top">
+          <div class="demo-mem" id="clipCount">0<small> clips</small></div>
+          <div class="demo-cap" id="clipCap">Copy a snippet below to start your history</div>
+        </div>
+
+        <div class="src-row" id="srcRow">
+          <button class="src-chip" type="button" data-clip="https://zovo.one" data-kind="URL">
+            <span class="sc-kind">URL</span><span class="sc-nm">https://zovo.one</span><span class="sc-act">Copy →</span>
+          </button>
+          <button class="src-chip" type="button" data-clip="npm i clipboard-history-pro" data-kind="Code">
+            <span class="sc-kind">Code</span><span class="sc-nm">npm i clipboard-history-pro</span><span class="sc-act">Copy →</span>
+          </button>
+          <button class="src-chip" type="button" data-clip="Wire details for the Q3 invoice" data-kind="Text">
+            <span class="sc-kind">Text</span><span class="sc-nm">Wire details for the Q3 invoice</span><span class="sc-act">Copy →</span>
+          </button>
+        </div>
+
+        <div class="hist" id="histList">
+          <div class="hist-empty" id="histEmpty">Your captured clips appear here, newest on top. Click one to copy it back.</div>
+        </div>
+      </div>
+      <p class="demo-note">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Clips you copy here go into your real history, stored on this device only. Nothing is uploaded or tracked.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ STEP 3 · MAKE IT YOURS ============ -->
+  <section class="step" data-step="3" data-next="Save and continue">
+    <div class="center">
+      <span class="kicker">A few seconds to fit how you work</span>
+      <h2>Make it <span class="em">yours</span>.</h2>
+      <p class="lede">Smart defaults are already on. Adjust anything you like, it saves the moment you continue.</p>
+
+      <div class="prime">
+        <div class="prime-row">
+          <div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div>
+          <div><span class="ttl">Why it asks for clipboard access</span><span class="tx">To do its one job, Clipboard History reads what you copy and can write a saved clip back when you pick it. That is the whole feature. Clips are stored locally on your machine only.</span></div>
+        </div>
+        <div class="prime-row">
+          <div class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg></div>
+          <div><span class="ttl">Why it runs on every site</span><span class="tx">You copy things everywhere, so it has to be present everywhere to catch them. It watches only for copies and never sends what you copy to any server.</span></div>
+        </div>
+      </div>
+
+      <div class="setup" id="setupForm">
+        <div class="opt tgls">
+          <div class="tgl-row"><span>Skip a copy that matches the last one</span>
+            <label class="tgl"><input type="checkbox" data-setting="skipDuplicates" checked><span class="tgl-s"></span></label></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+
+  
+
+  
+
+  <!-- ============ STEP 7 · ALL SET + FOUNDER SIGN-OFF ============ -->
+  <section class="step" data-step="4" data-next="Start clipping">
+    <div class="center">
+      <div class="done-ic"><svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+      <span class="kicker mint">History is on</span>
+      <h2>You're all set.</h2>
+      <p class="lede">Clipboard History Pro is running quietly in the background. From here on, text you copy on web pages is
+        saved and searchable, and your last copy is no longer your only one.</p>
+
+      <div class="pin">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 17v5"/><path d="M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1z"/></svg>
+        Tip. Click the puzzle icon in Chrome's toolbar and pin Clipboard History so it's one click away.
+      </div>
+
+      <div class="sc-title">Your keyboard shortcut</div>
+      <div class="shortcuts">
+        <div class="sc"><span class="keys"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>V</kbd></span>Open clipboard history from anywhere</div>
+        <div class="sc"><span class="keys"><kbd>Type</kbd></span>Start typing to search your clips</div>
+      </div>
+      <div class="sub" style="font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:11px;color:var(--text-4);margin-top:12px">On Windows and Linux the shortcut is Ctrl + Shift + V. Rebind it at chrome://extensions/shortcuts.</div>
+
+      <div class="toolkit">
+        <div class="toolkit-head"><span class="t">Part of the Zovo toolkit</span>
+          <a href="https://www.zovo.one" target="_blank" rel="noopener">All extensions ↗</a></div>
+        <div class="tk-item"><div><div class="tn">BeLikeNative</div><div class="td">Rewrite any text, on any site</div></div><span class="meta">Writing ↗</span></div>
+      </div>
+
+      <!-- founder sign-off (photo fits here) -->
+      <div class="signoff">
+        <div class="signoff-head">
+          <img class="pic" src="assets/michael-lip.png" alt="Michael Lip">
+          <div class="who">
+            <div class="nm">Michael Lip
+              <svg class="verified" width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.4 1.8 3-.2 1 2.8 2.6 1.4-.6 2.9 1.4 2.6-2 2.2.2 3-2.8.9-1.4 2.6-2.9-.7-2.5 1.6-2.5-1.6-2.9.7L6.9 21l-2.8-.9.2-3-2-2.2 1.4-2.6-.6-2.9L5.7 6l1-2.8 3 .2z"/><path d="M10.5 13.5l-2-2L7 13l3.5 3.5L17 10l-1.5-1.5z" fill="#05030f"/></svg>
+            </div>
+            <div class="role">a note from the person who built this</div>
+          </div>
+        </div>
+        <p>I built this because I kept losing things. I'd copy an address, then copy a link before I pasted it, and the
+          address was just gone. So I made the version I wanted on my own machine. Copies saved, everything
+          searchable, and none of it leaving your computer.</p>
+        <p>If something breaks, or you wish it did one more thing, tell me. Every bug and request is read and fixed by the
+          same person who wrote the code. That's the deal. You use it, I keep making it better.</p>
+        <div class="sig">Michael</div>
+        <div class="reach">
+          <a href="mailto:support@zovo.one">support@zovo.one</a>
+          <a href="https://github.com/theluckystrike" target="_blank" rel="noopener">github.com/theluckystrike</a>
+          <a href="https://x.com/_alphashark_" target="_blank" rel="noopener">@_alphashark_</a>
+        </div>
+        <p class="ps">P.S. Thank you for trusting a real developer over a faceless one. Now go copy something and watch it stick.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- bottom nav -->
+<div class="navbar">
+  <div class="navbar-in">
+    <button class="nbtn back" id="backBtn" hidden>
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back
+    </button>
+    <div class="indicator">
+      <span class="counter" id="counter">01 / 04</span>
+      <div class="dots" id="dots">
+        <button class="dot active" data-step="1" aria-label="Step 1"></button>
+        <button class="dot" data-step="2" aria-label="Step 2"></button>
+        <button class="dot" data-step="3" aria-label="Step 3"></button>
+        <button class="dot" data-step="4" aria-label="Step 4"></button>
+      </div>
+    </div>
+    <button class="nbtn next" id="nextBtn">
+      <span id="nextLabel">Show me</span>
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </button>
+  </div>
+</div>
+
+<script src="onboarding.js"></script>
+</body>
+</html>

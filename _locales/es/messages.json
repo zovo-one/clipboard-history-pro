@@ -1,0 +1,234 @@
+{
+  "extensionName": {
+    "message": "Clipboard History Pro - Clipboard Manager, Copy Paste, Snippet Search & Pin",
+    "description": "The name of the extension shown in Chrome"
+  },
+  "browserActionTitle": {
+    "message": "Clipboard History Pro",
+    "description": "Tooltip shown when hovering over extension icon"
+  },
+  "tabAll": {
+    "message": "Todo",
+    "description": "Tab label for all clips"
+  },
+  "tabPinned": {
+    "message": "Fijados",
+    "description": "Tab label for pinned clips"
+  },
+  "tabStarred": {
+    "message": "Favoritos",
+    "description": "Tab label for starred clips"
+  },
+  "searchPlaceholder": {
+    "message": "Buscar clips...",
+    "description": "Placeholder text in search input"
+  },
+  "searchNoResults": {
+    "message": "No se encontraron clips",
+    "description": "Message when search returns no results"
+  },
+  "emptyStateTitle": {
+    "message": "Sin clips todavía",
+    "description": "Title when clipboard history is empty"
+  },
+  "emptyStateDescription": {
+    "message": "Copia algo de texto y aparecerá aquí",
+    "description": "Description when clipboard history is empty"
+  },
+  "clipCopied": {
+    "message": "Copiado al portapapeles",
+    "description": "Toast message when clip is copied"
+  },
+  "clipPinned": {
+    "message": "Clip fijado",
+    "description": "Toast message when clip is pinned"
+  },
+  "clipUnpinned": {
+    "message": "Clip desfijado",
+    "description": "Toast message when clip is unpinned"
+  },
+  "clipStarred": {
+    "message": "Clip marcado como favorito",
+    "description": "Toast message when clip is starred"
+  },
+  "clipUnstarred": {
+    "message": "Clip desmarcado",
+    "description": "Toast message when clip is unstarred"
+  },
+  "clipDeleted": {
+    "message": "Clip eliminado",
+    "description": "Toast message when clip is deleted"
+  },
+  "buttonCopy": {
+    "message": "Copiar",
+    "description": "Copy button text"
+  },
+  "buttonPin": {
+    "message": "Fijar",
+    "description": "Pin button text"
+  },
+  "buttonUnpin": {
+    "message": "Desfijar",
+    "description": "Unpin button text"
+  },
+  "buttonStar": {
+    "message": "Favorito",
+    "description": "Star button text"
+  },
+  "buttonUnstar": {
+    "message": "Quitar favorito",
+    "description": "Unstar button text"
+  },
+  "buttonDelete": {
+    "message": "Eliminar",
+    "description": "Delete button text"
+  },
+  "buttonClearAll": {
+    "message": "Borrar todo",
+    "description": "Clear all clips button"
+  },
+  "buttonSettings": {
+    "message": "Ajustes",
+    "description": "Settings button text"
+  },
+  "settingsTitle": {
+    "message": "Ajustes",
+    "description": "Settings page title"
+  },
+  "settingsMaxClips": {
+    "message": "Máximo de clips",
+    "description": "Max clips setting label"
+  },
+  "proFeature": {
+    "message": "Función Pro",
+    "description": "Label for Pro-only features"
+  },
+  "proBadge": {
+    "message": "PRO",
+    "description": "Pro badge text"
+  },
+  "upgradeTitle": {
+    "message": "Mejora a Pro",
+    "description": "Upgrade modal title"
+  },
+  "upgradeButton": {
+    "message": "Mejorar ahora",
+    "description": "Upgrade button text"
+  },
+  "freeTierLimit": {
+    "message": "Has alcanzado el límite gratuito de $COUNT$ clips",
+    "description": "Free tier limit message",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "100"
+      }
+    }
+  },
+  "freeTierRemaining": {
+    "message": "$COUNT$ clips restantes",
+    "description": "Remaining clips in free tier",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "25"
+      }
+    }
+  },
+  "clipCount": {
+    "message": "$COUNT$ clips",
+    "description": "Number of clips",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "42"
+      }
+    }
+  },
+  "clipTypeText": {
+    "message": "Texto",
+    "description": "Text clip type label"
+  },
+  "clipTypeUrl": {
+    "message": "URL",
+    "description": "URL clip type label"
+  },
+  "clipTypeCode": {
+    "message": "Código",
+    "description": "Code clip type label"
+  },
+  "clipTypeEmail": {
+    "message": "Correo",
+    "description": "Email clip type label"
+  },
+  "timeJustNow": {
+    "message": "Ahora mismo",
+    "description": "Timestamp for very recent clips"
+  },
+  "timeMinutesAgo": {
+    "message": "Hace $COUNT$ minutos",
+    "description": "Timestamp for minutes ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "timeHoursAgo": {
+    "message": "Hace $COUNT$ horas",
+    "description": "Timestamp for hours ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "timeDaysAgo": {
+    "message": "Hace $COUNT$ días",
+    "description": "Timestamp for days ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "confirmClearAll": {
+    "message": "¿Estás seguro de que quieres borrar todos los clips? Esto no se puede deshacer.",
+    "description": "Confirmation message for clearing all clips"
+  },
+  "confirmDelete": {
+    "message": "¿Estás seguro de que quieres eliminar este clip?",
+    "description": "Confirmation message for deleting a clip"
+  },
+  "buttonConfirm": {
+    "message": "Confirmar",
+    "description": "Confirm button text"
+  },
+  "buttonCancel": {
+    "message": "Cancelar",
+    "description": "Cancel button text"
+  },
+  "errorGeneric": {
+    "message": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "description": "Generic error message"
+  },
+  "errorStorageFull": {
+    "message": "El almacenamiento está lleno. Por favor, elimina algunos clips.",
+    "description": "Storage full error message"
+  },
+  "welcomeTitle": {
+    "message": "¡Bienvenido a Clipboard History Pro!",
+    "description": "Welcome screen title"
+  },
+  "welcomeDescription": {
+    "message": "Tu historial del portapapeles se está guardando automáticamente.",
+    "description": "Welcome screen description"
+  },
+  "welcomeGetStarted": {
+    "message": "Comenzar",
+    "description": "Get started button on welcome screen"
+  }
+}

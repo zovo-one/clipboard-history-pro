@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=380">
+    <title>Clipboard History Pro</title>
+    <link rel="stylesheet" href="popup.css">
+<link rel="stylesheet" href="membership-entry.css">
+</head>
+
+<body>
+    <div class="popup">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-brand">
+                <img src="../icons/icon-32.png" alt="Logo" class="header-logo">
+                <span class="header-title">Clipboard History</span>
+                <span class="header-badge" id="proBadge" hidden>PRO</span>
+            </div>
+            <div class="header-actions">
+                <button class="btn-icon" id="settingsBtn" title="Settings">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M8 10a2 2 0 100-4 2 2 0 000 4z" stroke="currentColor" stroke-width="1.5" />
+                        <path
+                            d="M13.5 8c0-.5-.4-1-.9-1h-.3c-.1-.4-.3-.8-.5-1.1l.2-.2c.4-.4.4-1 0-1.4l-.3-.3c-.4-.4-1-.4-1.4 0l-.2.2c-.3-.2-.7-.4-1.1-.5v-.3c0-.5-.5-.9-1-.9s-1 .4-1 .9v.3c-.4.1-.8.3-1.1.5l-.2-.2c-.4-.4-1-.4-1.4 0l-.3.3c-.4.4-.4 1 0 1.4l.2.2c-.2.3-.4.7-.5 1.1h-.3c-.5 0-.9.5-.9 1s.4 1 .9 1h.3c.1.4.3.8.5 1.1l-.2.2c-.4.4-.4 1 0 1.4l.3.3c.4.4 1 .4 1.4 0l.2-.2c.3.2.7.4 1.1.5v.3c0 .5.5.9 1 .9s1-.4 1-.9v-.3c.4-.1.8-.3 1.1-.5l.2.2c.4.4 1 .4 1.4 0l.3-.3c.4-.4.4-1 0-1.4l-.2-.2c.2-.3.4-.7.5-1.1h.3c.5 0 .9-.5.9-1z"
+                            stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Search & Filter Bar -->
+        <div class="search-bar">
+            <div class="search-input-wrapper">
+                <svg class="search-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                    <circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.5" />
+                    <path d="M9.5 9.5L13 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+                </svg>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search clips..." autofocus>
+                <span class="clip-count" id="clipCount">0</span>
+            </div>
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="starred" title="Starred" aria-label="Starred">
+                    <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M7 1.5l1.6 3.3 3.6.5-2.6 2.5.6 3.6L7 9.7l-3.2 1.7.6-3.6L1.8 5.3l3.6-.5L7 1.5z" fill="currentColor"/>
+                    </svg>
+                </button>
+                <button class="filter-tab" data-filter="pinned" title="Pinned" aria-label="Pinned">
+                    <svg width="13" height="13" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                        <path d="M5 1.5h4l-.6 1.2v2.6l1.8 1.8v1H3.8v-1l1.8-1.8V2.7L5 1.5z" fill="currentColor"/>
+                        <path d="M7 8.2V12.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <button class="filter-tab" data-filter="text">Text</button>
+                <button class="filter-tab" data-filter="url">URL</button>
+                <button class="filter-tab" data-filter="code">Code</button>
+            </div>
+        </div>
+
+        <!-- Limit Banner (shows when near limit) -->
+        <div class="limit-banner" id="limitBanner" hidden>
+            <span><strong id="usageText">80/100 clips</strong> used</span>
+            <button class="btn-upgrade-small" id="upgradeBannerBtn">Upgrade</button>
+        </div>
+
+        <!-- Clips List -->
+        <div class="clips-container" id="clipsContainer">
+            <div class="clips-list" id="clipsList">
+                <!-- Clips render here -->
+            </div>
+
+            <!-- Empty State - Agent 3 -->
+            <div class="empty-state" id="emptyState" hidden>
+                <div class="empty-state-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <rect x="6" y="2" width="20" height="28" rx="3" stroke="currentColor" stroke-width="2" />
+                        <rect x="10" y="0" width="12" height="4" rx="2" fill="currentColor" />
+                        <path d="M11 12h10M11 17h10M11 22h6" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+                <h3 class="empty-state-title">Your clipboard history is empty</h3>
+                <p class="empty-state-description">
+                    Copy text on any web page and it'll show up here.
+                    <span id="shortcutHint">Press <kbd class="keyboard-hint" id="shortcutKey">Ctrl+Shift+V</kbd> anytime to open.</span>
+                </p>
+                <button class="empty-state-action" id="emptyStateCta">Try copying something →</button>
+            </div>
+
+            <!-- No Results State - Agent 3 -->
+            <div class="empty-state" id="noResultsState" hidden>
+                <div class="empty-state-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                        <circle cx="14" cy="14" r="10" stroke="currentColor" stroke-width="2" />
+                        <path d="M22 22l8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        <path d="M11 11l6 6M17 11l-6 6" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+                <h3 class="empty-state-title">No clips match your search</h3>
+                <p class="empty-state-description" id="noResultsText">
+                    Try a different search term or clear filters.
+                </p>
+                <button class="empty-state-action" id="clearSearchBtn">Clear search</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="https://zovo.one?ref=clipboard-history-pro" target="_blank" class="footer-brand">
+                <span class="zovo-logo">z</span>
+                <span>zovo.</span>
+            </a>
+            <div class="footer-actions">
+                <button class="btn-icon btn-export" id="exportBtn" title="Export (Pro)">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M7 1v8M3 5l4-4 4 4M2 10v2h10v-2" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button class="btn-icon btn-clear" id="clearBtn" title="Clear All">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M2 4h10M5 4V2h4v2M3 4v8a1 1 0 001 1h6a1 1 0 001-1V4" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button class="btn-icon btn-license" id="licenseBtn" title="Enter License Key">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <circle cx="4.5" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.5" />
+                        <path d="M6.3 7.7L11 3l1.5 1.5M9.5 5l1.2 1.2" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </footer>
+
+        <!-- License Key Modal -->
+        <div class="modal" id="licenseModal" hidden>
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="closeLicenseModal">&times;</button>
+                <div class="modal-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                        <circle cx="14" cy="26" r="7" stroke="currentColor" stroke-width="2" />
+                        <path d="M18.9 21.1L31 9l4 4M26 14l3.5 3.5" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h2>Enter License Key</h2>
+                <p class="modal-message">Paste the Pro license key from your Zovo purchase email.</p>
+
+                <input type="text" class="search-input" id="licenseKeyInput"
+                    placeholder="ZOVO-XXXX-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false"
+                    style="text-transform:uppercase;font-family:monospace;margin-bottom:8px;width:100%;box-sizing:border-box;">
+                <p class="modal-message" id="licenseError" hidden style="color:#ef4444;font-size:12px;"></p>
+
+                <button class="btn-primary btn-upgrade" id="activateLicenseBtn">Activate License</button>
+                <button class="btn-secondary" id="licenseCancelBtn">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Upgrade Modal -->
+        <div class="modal" id="upgradeModal" hidden>
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="closeModal">&times;</button>
+                <div class="modal-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+                        <path d="M20 5l3.4 9.2 9.6 3.4-9.6 3.4L20 30l-3.4-9L7 17.6l9.6-3.4z" stroke="currentColor"
+                            stroke-width="2" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <h2>Everything in Pro</h2>
+                <p class="modal-message" id="upgradeMessage">You've reached your free tier limit.</p>
+
+                <ul class="pro-features">
+                    <li>10,000 clip history (100&times; more than free)</li>
+                    <li>Unlimited stars and pins</li>
+                    <li>Export to CSV, JSON &amp; TXT</li>
+                    <li>Every Zovo Pro extension included</li>
+                </ul>
+
+                <div class="pricing">
+                    <span class="price">$99 once &middot; yours for life</span>
+                    <span class="price-note">or $4.99/mo. The lifetime deal pays for itself in 20 months, then it's free forever</span>
+                </div>
+
+                <a href="https://zovo.one/pricing?ref=clipboard-history-pro&src=popup_modal" class="btn-primary btn-upgrade" target="_blank">
+                    Get Pro &rarr;
+                </a>
+                <button class="btn-secondary" id="maybeLaterBtn">Maybe Later</button>
+                <button class="btn-secondary" id="haveLicenseBtn">Already have a license key?</button>
+            </div>
+        </div>
+
+        <!-- Settings Panel (no referral modal: there is no referral program) -->
+        <div class="settings-panel" id="settingsPanel" hidden>
+            <div class="settings-header">
+                <h3>Settings</h3>
+                <button class="btn-icon" id="closeSettings">&times;</button>
+            </div>
+            <div class="settings-content">
+                <div class="setting-item">
+                    <label>
+                        <input type="checkbox" id="autoDeleteDuplicates" checked>
+                        Skip a copy that matches the last one
+                    </label>
+                </div>
+                <div class="setting-item"><label><input type="checkbox" id="whatsNewToggle" checked> Show what's new after an update</label></div>
+                <hr>
+                <div class="settings-footer">
+                    <button class="btn-secondary" id="exportAllBtn">Export All</button>
+                    <button class="btn-danger" id="clearAllBtn">Clear All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+<script src="whats-new-setting.js"></script>
+<script src="membership-state.js"></script>
+<script defer src="membership-entry.js"></script>
+<script src="../zovo-whats-new/config.js"></script><script src="../zovo-whats-new/zovo-cards.js" data-zovo-mount="popup"></script>
+</body>
+
+</html>
